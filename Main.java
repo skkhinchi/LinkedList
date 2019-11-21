@@ -11,7 +11,28 @@ class LinkedList
       next=null;
     }
   }
- 
+  public static LinkedList insert(LinkedList list,int data)
+  {
+    Node new_node = new Node(data);
+    new_node.next=null;
+
+    if(list.head==null)
+    { 
+      list.head=new_node;
+
+    }
+    else
+    {
+      Node last=list.head;
+      while(last.next!=null)
+      {
+        last=last.next;
+      }
+    last.next=new_node;
+
+    }
+    return list;
+  }
 }
 
 
