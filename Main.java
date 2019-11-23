@@ -51,13 +51,18 @@ class LinkedList
   public static LinkedList deleteByKey(LinkedList list, int key) 
     { 
         Node currNode = list.head, prev = null; 
+
+
+        //Case:1
         if (currNode != null && currNode.data == key) { 
             list.head = currNode.next; 
             System.out.println(key + " found and deleted"); 
   
             return list; 
         } 
-  
+        
+
+        //case:2
         while (currNode != null && currNode.data != key) { 
            
             prev = currNode; 
@@ -72,7 +77,8 @@ class LinkedList
             
             System.out.println(key + " found and deleted"); 
         } 
-  
+
+        //Case:3
         if (currNode == null) { 
            
             System.out.println(key + " not found"); 
