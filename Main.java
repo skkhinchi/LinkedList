@@ -35,7 +35,7 @@ class LinkedList
     }
     return list;
   }
-
+  //Print All Nodes on SequeSequence 
   public static void printList(LinkedList list)
   {
     Node currNode=list.head;
@@ -48,13 +48,51 @@ class LinkedList
     } 
 
   }
-}
+  public static LinkedList deleteByKey(LinkedList list, int key) 
+    { 
+        Node currNode = list.head, prev = null; 
+        if (currNode != null && currNode.data == key) { 
+            list.head = currNode.next; 
+            System.out.println(key + " found and deleted"); 
+  
+            return list; 
+        } 
+  
+        while (currNode != null && currNode.data != key) { 
+           
+            prev = currNode; 
+            currNode = currNode.next; 
+        } 
+  
+         
+        if (currNode != null) { 
+            
+            prev.next = currNode.next; 
+  
+            
+            System.out.println(key + " found and deleted"); 
+        } 
+  
+        if (currNode == null) { 
+           
+            System.out.println(key + " not found"); 
+        } 
+  
+       
+        return list; 
+    }
+} 
+
+
+
+
+
 
 //--------------------------------------
 public class Main
 {
 
-  public static void main(String[] args) {
+  public static void main (String[] args) {
     
     System.out.println("Hello world!");
     LinkedList list =new LinkedList();
@@ -66,7 +104,10 @@ public class Main
     list=LinkedList.insert(list,5);
     list=LinkedList.insert(list,6);
     list=LinkedList.insert(list,7);
+    LinkedList.deleteByKey(list, 4); 
 
     LinkedList.printList(list);
+    System.out.println();
+    LinkedList.deleteByKey(list, 10); 
   }
 }
